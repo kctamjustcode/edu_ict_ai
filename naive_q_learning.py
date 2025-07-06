@@ -16,7 +16,7 @@ q_values_cp = copy.deepcopy(q_values)
 
 updates = 50
 for t in range(updates):
-    for i in range(500-1):
+    for i in range(500-2, -1, -1):
         for j in range(3):
             q_values_cp[i][j] = (1-alpha) * q_values[i][j] + alpha * (R(i+1, j) + discount_factor*max(q_values[i+1]))
     q_values = q_values_cp
